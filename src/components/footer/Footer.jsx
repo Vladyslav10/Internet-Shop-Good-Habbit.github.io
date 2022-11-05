@@ -1,11 +1,16 @@
 import React from "react";
-// import './Works.scss';
+import './Footer.scss';
 
 const Footer = () => {
     return(
-       <div>
-           Footer
-       </div>
+       <footer className='footer'>
+           <div className="footer__container container">
+                <div className="footer__row">
+                    <div className="footer__created">© Created by</div>
+                    <div className="footer__right">All rights Reserved</div>
+                </div>
+           </div>
+       </footer>
     );
 };
 
