@@ -1,11 +1,12 @@
 import React from "react";
 import Footer from '../../components/footer/Footer';
+import Header from '../../components/header/Header';
 // import './Works.scss';
 
 const Main = () => {
     return(
        <div className='wrapper'>
-           <header></header>
+           <Header/>
            <main></main>
            <Footer/>
        </div>

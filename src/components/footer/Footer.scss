@@ -10,4 +10,10 @@
     font-size: 0.9rem;
     line-height: 1.4;
     color: #9a9a9a;
+    @media (max-width: 767px){
+        flex-direction: column;
+        & > div:not(:last-child) {
+            margin: 0 0 20px 0;
+        }
+    }
 }
