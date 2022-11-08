@@ -43,7 +43,7 @@
 
 .header__top {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     margin: 0px 0px 33px 0px;
     @media (max-width: 992px) {
         position: fixed;
@@ -97,9 +97,11 @@
             border-bottom: 2px solid #4e72d0;
         }
     }
-    & > li:hover {
-        text-decoration: underline;
-    }
+    @media (max-width: 992px) {
+        & > li:hover {
+            text-decoration: underline;
+        }
+    }  
 }
 
 .navigation__link {
@@ -178,7 +180,7 @@
 
 .header__logo {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     background-color: white;
     @media (min-width:993px){
         width: 22%;    
