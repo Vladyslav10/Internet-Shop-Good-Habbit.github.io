@@ -85,9 +85,10 @@ p.main-about__column {
 
 .main-about__column-img {
     flex: 0 1 45%;
-}
-
-.column-main-about {
+    margin: 0px 30px 0px 0px;
+    & > div {
+        padding: 0px 0px 120% 0px;
+    }
 }
 
 .main-about__text {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import './Header.scss';
 import { ABOUT_ROUTE, NEWS_ROUTE, MAIN_ROUTE } from '../../utils/consts';
 import { ReactComponent as Logo } from '../../img/header/logo.svg';
@@ -6,42 +6,45 @@ import { ReactComponent as Facebook } from '../../img/header/facebook.svg';
 import { ReactComponent as Insta } from '../../img/header/insta.svg';
 import { ReactComponent as Youtube } from '../../img/header/youtube.svg';
 import { NavLink } from 'react-router-dom';
-import Link from 'react-scroll/modules/components/Link';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsBurgerActive } from '../../store/reducer';
+//import Link from 'react-scroll/modules/components/Link';
 
 const Header = () => {
-  const [active, setActive] = useState(false);
+  const dispatch = useDispatch();
+  const burgerActive = useSelector(state => state.page.isBurgerActive);
+
+  useEffect(() => {
+    dispatch(setIsBurgerActive(false));
+  }, []);
 
   return (
     <header className='header'>
       <div className='header__container container'>
-        <div onClick={() => setActive(!active)} className={active ? 'header__icon active' : 'header__icon'}>
+        <div onClick={() => dispatch(setIsBurgerActive(!burgerActive))} className={burgerActive ? 'header__icon active' : 'header__icon'}>
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <div className={active ? 'header__top active' : 'header__top'}>
+        <div className={burgerActive ? 'header__top active' : 'header__top'}>
           <nav className='header__navigation navigation'>
             <ul className='navigation__list'>
-              <li onClick={() => setActive(false)}>
+              <li onClick={() => dispatch(setIsBurgerActive(false))}>
                 <NavLink to={MAIN_ROUTE} className='navigation__link'>
-                  <Link to='products' smooth={true} duration={500}>
                     Products
-                  </Link>
                 </NavLink>
               </li>
-              <li onClick={() => setActive(false)}>
+              <li onClick={() => dispatch(setIsBurgerActive(false))}>
                 <NavLink to={ABOUT_ROUTE} className='navigation__link'>
                   About Us
                 </NavLink>
               </li>
-              <li onClick={() => setActive(false)}>
+              <li onClick={() => dispatch(setIsBurgerActive(false))}>
                 <NavLink to={MAIN_ROUTE} className='navigation__link'>
-                  <Link to='Best-deals' smooth={true} duration={500}>
                     Best Deals
-                  </Link>
                 </NavLink>
               </li>
-              <li onClick={() => setActive(false)}>
+              <li onClick={() => dispatch(setIsBurgerActive(false))}>
                 <NavLink to={NEWS_ROUTE} className='navigation__link'>
                   Latest News
                 </NavLink>
@@ -98,7 +101,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div onClick={() => setActive(false)} className='header__logo'>
+        <div onClick={() => dispatch(setIsBurgerActive(false))} className='header__logo'>
           <NavLink to={MAIN_ROUTE} className='header__img'>
             <Logo />
           </NavLink>

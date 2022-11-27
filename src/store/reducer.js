@@ -2,6 +2,7 @@
 // const SET_IS_FETCHING = "SET_IS_FETCHING"
 // const SET_CURRENT_PAGE = "SET_CURRENT_PAGE"
 // const SET_FETCH_ERROR = "SET_FETCH_ERROR"
+const SET_IS_BURGER_ACTIVE = 'SET_IS_BURGER_ACTIVE';
 
 const defaultState = {
   // items: [],
@@ -10,6 +11,7 @@ const defaultState = {
   // perPage:10,
   // totalCount:0,
   // isFetchError: false
+  isBurgerActive: false,
 };
 
 export default function reposReducer(state = defaultState, action) {
@@ -21,6 +23,11 @@ export default function reposReducer(state = defaultState, action) {
     //         totalCount: action.payload.total_count,
     //         isFetching: false
     //     }
+    case SET_IS_BURGER_ACTIVE:
+      return {
+        ...state,
+        isBurgerActive: action.payload,
+      };
     // case SET_IS_FETCHING:
     //     return {
     //         ...state,
@@ -41,6 +48,10 @@ export default function reposReducer(state = defaultState, action) {
   }
 }
 
+export const setIsBurgerActive = (bool) => ({
+  type: SET_IS_BURGER_ACTIVE,
+  payload: bool,
+});
 // export const setRepos = (repos) => ({type:SET_REPOS, payload:repos})
 // export const setIsFetching = (bool) => ({type:SET_IS_FETCHING, payload:bool})
 // export const setCurrentPage = (page) => ({type:SET_CURRENT_PAGE, payload:page})

@@ -5,6 +5,7 @@ import videoBackground from '../../img/aboutPage/video.jpg';
 import user from '../../img/aboutPage/ceo-avatar.jpg';
 import { ReactComponent as Triangle } from '../../img/aboutPage/triangle.svg';
 import './About.scss';
+import BottomNavigation from '../../components/bottomNavigation/BottomNavigation';
 
 const About = () => {
   return (
@@ -59,8 +60,8 @@ const About = () => {
         <div className='main-about__information'>
           <div className='main-about__container container'>
             <div className='main-about__row'>
-              <div className='main-about__column main-about__column-img column-main-about'>
-                <div className='column-main-about ibg'>
+              <div className='main-about__column main-about__column-img'>
+                <div className='ibg'>
                   <img src={user} alt='avatar' />
                 </div>
               </div>
@@ -88,6 +89,7 @@ const About = () => {
             </div>
           </div>
         </div>
+        <BottomNavigation/>
         <div className='main-about__form'></div>
       </main>
       <Footer />
